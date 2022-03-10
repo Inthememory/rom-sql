@@ -1094,6 +1094,8 @@ module ROM
             else
               new(dataset.__send__(type, other.to_sym, join_cond, opts, &block))
             end
+          elsif other.is_a?(Sequel::Postgres::Dataset)
+            new(dataset.__send__(type, other.first_source, join_cond, opts, &block))
           elsif other.is_a?(Sequel::SQL::AliasedExpression)
             new(dataset.__send__(type, other, join_cond, opts, &block))
           elsif other.is_a?(Sequel::SQL::QualifiedIdentifier)
