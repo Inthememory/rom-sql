@@ -15,10 +15,10 @@ module ROM
         binds = payload[:binds].to_a.inspect if payload[:binds]
 
         if odd?
-          name = color(name, :cyan, true)
-          sql  = color(sql, nil, true)
+          name = color(name, :cyan, bold: true)
+          sql  = color(sql, nil, bold: true)
         else
-          name = color(name, :magenta, true)
+          name = color(name, :magenta, bold: true)
         end
 
         debug "  #{name}  #{sql}  #{binds}"
